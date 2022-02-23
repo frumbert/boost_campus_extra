@@ -58,6 +58,7 @@ if ($navdraweropen) {
 if ($minimalheader) {
     $extraclasses[] = 'options_minimal_header';
 }
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
