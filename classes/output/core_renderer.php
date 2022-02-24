@@ -172,4 +172,16 @@ class core_renderer extends \theme_boost_campus\output\core_renderer {
         return parent::get_logo_url();
     }
 
+    // ITTA - cause clicking a onetopic course in the navbar to open section 0 of that course
+    public function navbar() {
+        global $COURSE, $PAGE;
+        if ($COURSE->id !== SITEID && $COURSE->format === "onetopic") {
+            foreach ($PAGE->navbar->get_items() as &$node) {
+                if ($node->type === \navigation_node::TYPE_COURSE && $node->action instanceof moodle_url) {
+                    $action = $node->action->param('section','0');
+                }
+            }
+        }
+        return $this->render_from_template('core/navbar', $this->page->navbar);
+    }
 }
