@@ -143,6 +143,13 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    $name = 'theme_boost_campus_extra/loginbox';
+    $title = get_string('loginbox', 'theme_boost_campus_extra', null, true);
+    $description = get_string('loginbox_desc', 'theme_boost_campus_extra', null, true);
+    $setting = new admin_setting_configcheckbox($name, $title, $description, false);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Add tab to settings page.
     $settings->add($page);
 }

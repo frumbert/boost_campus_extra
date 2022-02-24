@@ -92,7 +92,10 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{^ minimalheader}}{{> theme_boost_campus/navbar }}{{/ minimalheader}}
+    {{^ minimalheader}}
+        {{#showlogin}}{{> theme_boost_campus_extra/navbar }}{{/showlogin}}
+        {{^showlogin}}{{> theme_boost_campus/navbar}}{{/showlogin}}
+    {{/ minimalheader}}
     {{> theme_boost/nav-drawer }}
 
     <div id="page" class="container-fluid d-print-block">

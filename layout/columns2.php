@@ -111,9 +111,16 @@ $strmymoodle = get_string('myhome');
 if ($headerraw === "{$SITE->shortname}: {$strmymoodle}") $headerraw = "";
 $emptyheader = empty($headerraw) && !is_siteadmin(); // TODO: might still have a button to show
 
+// show loginbox?
+$showlogin = get_config('theme_boost_campus_extra', 'loginbox') === "1";
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
+
+    'siteadmin' => is_siteadmin(),
+    'loggedin' => isloggedin(),
+    'showlogin' => $showlogin,
 
     'emptyheader' => $emptyheader,
     'minimalheader' => $minimalheader,
@@ -137,6 +144,13 @@ $templatecontext = [
     'bcbttbutton' => $bcbttbutton
     // MODIFICATION END.
 ];
+
+if (!isloggedin()) {
+    $templatecontext['logintoken'] = \core\session\manager::get_login_token();
+    $login = navigation_node::create(get_string('login'), new moodle_url('/login/index.php'));
+    $login->showinflatnavigation = true;
+    $PAGE->navigation->add_node($login);
+}
 
 // MODIFICATION START: Settings for perpetual information banner.
 $perpibenable = get_config('theme_boost_campus', 'perpibenable');

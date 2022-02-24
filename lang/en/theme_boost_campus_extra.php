@@ -37,6 +37,9 @@ $string['region-footer-right'] = 'Footer (right)';
 $string['region-side-pre'] = 'Right';
 $string['region-main-top'] = 'Top of content';
 
+$string['loginbox'] = 'Login form';
+$string['loginbox_desc'] = 'Show login form in header?';
+
 
 // PRIVACY.
 $string['privacy:metadata'] = 'The Boost Campus Extra theme does not store any personal data about any user.';
