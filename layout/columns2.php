@@ -109,7 +109,7 @@ $timedinfobannershowonselectedpage = false;
 $headerraw = trim(strip_tags($OUTPUT->full_header()));
 $strmymoodle = get_string('myhome');
 if ($headerraw === "{$SITE->shortname}: {$strmymoodle}") $headerraw = "";
-$emptyheader = empty($meptyheader) && !is_siteadmin(); // TODO: might still have a button to show
+$emptyheader = empty($headerraw) && !is_siteadmin(); // TODO: might still have a button to show
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
