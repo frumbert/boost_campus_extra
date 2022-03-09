@@ -52,6 +52,12 @@ $THEME->layouts['scorm'] = array(
         'regions' => array(),
         'options' => array('nonavbar' => true, 'langmenu' => true, 'nocontextheader' => true, 'nofooter' => true, 'nocoursefooter' => true, 'minimal_header' => true),
     );
+$THEME->layouts['login'] = array(
+        'file' => 'login.php',
+        'regions' => array(),
+        'options' => array('langmenu' => true),
+    );
+
 
 // Get the config from parent theme boost_campus.
 if (get_config('theme_boost_campus', 'addablockposition') == 'positionnavdrawer') {
